@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chatbot search bar</title>
+    <link ref="integrate.py"></link>
+    
+    <style>
+    body,html{
+        height: 100%;
+        margin: 0;
+        background: rgb(140, 151, 195);
+       background: -webkit-linear-gradient(to right, rgb(55, 59, 34), rgb(66, 70, 54)40), rgb(32, 32, 43));
+        background: linear-gradient(to right, rgb(38, 51, 61), rgb(50, 55, 65), rgb(33, 33, 78));
+    }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f445;
+        }
+
+        #search-container {
+            text-align: center;
+        }
+
+        #search-input {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 300px;
+        }
+
+        #search-button {
+            padding: 10px;
+            font-size: 16px;
+            background-color: #f49842;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    
+    <div id="search-container">
+        <div class="img_cont">
+            <img src="C:\Users\91984\Downloads\th-removebg-preview.png" width="180px" class="rounded-circle user_img">
+            <span class="online_icon"></span>
+        </div>
+        <input type="text" id="search-input" placeholder="Search on chatbot">
+        <button id="search-button" onclick="performSearch()">Search</button>
+    </div>
+    
+
+    <script>
+        function performSearch() {
+            var searchTerm = document.getElementById('search-input').value;
+            if (searchTerm.trim() !== '') {
+                var searchUrl = 'https://docs.google.com/spreadsheets/d/1Y1DcTKdlHOhWOn0eNsiOina2Ko1TkIdD/edit?usp=sharing&ouid=100916478504429353127&rtpof=true&sd=true' + encodeURIComponent(searchTerm);
+                window.location.href = searchUrl;
+            }
+        }
+    </script>
+</body>
+</html>
+
+------python-------
+
+import pandas as pd
+pd.__version__
+df=pd.read_excel(r'C:\Users\91984\Downloads\Dronealexa.xlsx')
+max=5000
+column_to_access='Title'
+selected_column=df[column_to_access]
